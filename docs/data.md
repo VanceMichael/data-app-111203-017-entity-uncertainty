@@ -9,11 +9,15 @@
 | `observation_id` | str | 必填 |
 | `record` | str | 必填 |
 | `source` | str | 必填 |
-| `name` | str | 允许空值，空值不是零 |
-| `city` | str | 允许空值，空值不是零 |
+| `name` | str | 必填 |
+| `city` | str | 必填 |
 | `amount` | float | 必填 |
-| `year` | int | 允许空值，空值不是零 |
+| `year` | int | 必填 |
 | `registry` | str | 允许空值，空值不是零 |
 | `parent_hint` | str | 允许空值，空值不是零 |
 
 时间字段 day、week、tick、hour、minute、cycle、start_day、reported_day、known_at、visible_at、opened、observed 均以各字段名所述的相对时间单位表示整数；不同字段并不必然代表同一种时间。缺少的登记码与浓度等信息保持为空。示例只表达产品数据结构，不能代替实际调查资料。
+
+## 业务字段语义
+
+amount 为万元。registry 是机构登记码，可空；空值之间不是匹配证据。parent_hint 是上级组织线索，不是合并指令。year 为经费年份，source 为数据来源，record 是来源记录键。
