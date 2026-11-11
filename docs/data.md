@@ -1,0 +1,19 @@
+# 数据契约
+
+科研协作分析整理多来源机构名称和项目经费，提供按来源的金额核对与登记码覆盖率。
+
+主测量 `amount` 的单位为万元，主体字段是 `record`，核算维度是 `source`。`observation_id` 是文件内唯一观测编号，主体允许重复观测。数值只接受有限值；空单元格解析为 None，不能直接当成零。额外列不进入当前核算。
+
+| 字段 | 类型 | 约束 |
+| --- | --- | --- |
+| `observation_id` | str | 必填 |
+| `record` | str | 必填 |
+| `source` | str | 必填 |
+| `name` | str | 允许空值，空值不是零 |
+| `city` | str | 允许空值，空值不是零 |
+| `amount` | float | 必填 |
+| `year` | int | 允许空值，空值不是零 |
+| `registry` | str | 允许空值，空值不是零 |
+| `parent_hint` | str | 允许空值，空值不是零 |
+
+时间字段 day、week、tick、hour、minute、cycle、start_day、reported_day、known_at、visible_at、opened、observed 均以各字段名所述的相对时间单位表示整数；不同字段并不必然代表同一种时间。缺少的登记码与浓度等信息保持为空。示例只表达产品数据结构，不能代替实际调查资料。
