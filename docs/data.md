@@ -24,4 +24,4 @@ amount 为万元。registry 是机构登记码，可空；空值之间不是匹�
 
 ## 候选归属交换格式
 
-`data/linkage_options.json` 保存上游候选归属。fixed_assignments 为记录到机构的确定映射，groups 内每个方案完整覆盖该组记录，weight 为相对可信权重；incompatible_options 列出禁止同时选用的组与方案对。该文件只供分析使用，不表示机构登记码已经修改。
+`data/linkage_options.json` 保存上游候选归属。fixed_assignments 为记录到机构的确定映射，groups 内每个方案完整覆盖该组记录，weight 为相对可信权重；incompatible_options 列出禁止同时选用的组与方案对。该文件只供分析使用，不表示机构登记码已经修改。基于该文件的集中度不确定性分析见 `docs/concentration.md`。

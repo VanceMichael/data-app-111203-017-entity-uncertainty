@@ -9,7 +9,10 @@
 ```bash
 python3 -m analysis_app summary
 python3 -m analysis_app summary --input data/observations.csv --output output/summary.json
+python3 -m analysis_app concentration --output output/concentration.json --explain output/concentration_explanation.md
 ```
+
+`concentration` 在候选归属情景上分析机构经费集中度（HHI 与头部三家份额）的不确定性，口径见 `docs/concentration.md`。
 
 标准输出是完整 JSON，输出文件使用临时文件原子替换；失败退出码为 2，不覆盖既有结果。空数据集保留零计数与空分组，缺失数值不进入数值分母。数据指纹由按 observation_id 排序后的解析记录计算。
 
@@ -30,7 +33,11 @@ docker run --rm entity-uncertainty
 - `analysis_app/schema.py`：字段类型、主体与聚合维度。
 - `analysis_app/domain.py`：当前业务核算函数。
 - `analysis_app/summary.py`：确定性的分组与数值口径。
+- `analysis_app/linkage.py`：候选归属交换文件的加载与校验。
+- `analysis_app/concentration.py`：归属情景上的集中度不确定性分析。
+- `analysis_app/explain.py`：分析结果的中文说明渲染。
 - `analysis_app/cli.py`：本地命令及原子输出。
 - `docs/data.md`：数据契约。
+- `docs/concentration.md`：集中度不确定性口径。
 
 演示数据全部为本地合成，不对应现实机构、设备或人员；不能用来推断真实业务效果。

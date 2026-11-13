@@ -1,0 +1,453 @@
+{
+  "analysis": "concentration_uncertainty",
+  "bootstrap": {
+    "interpretation": "资助记录抽样误差（条件于情景与给定权重），与归属情景不确定性分列，不是无条件置信区间",
+    "per_scenario": [
+      {
+        "scenario": "S1",
+        "years": {
+          "2024": {
+            "n": 1000,
+            "p2.5": 0.049409928179315554,
+            "p50": 0.055079723795784304,
+            "p97.5": 0.06317519468592235
+          },
+          "2025": {
+            "n": 1000,
+            "p2.5": 0.048427951326601784,
+            "p50": 0.05306879588983145,
+            "p97.5": 0.061012005454191644
+          }
+        }
+      },
+      {
+        "scenario": "S2",
+        "years": {
+          "2024": {
+            "n": 1000,
+            "p2.5": 0.049396074469919955,
+            "p50": 0.05505374935966459,
+            "p97.5": 0.06315474822697575
+          },
+          "2025": {
+            "n": 1000,
+            "p2.5": 0.048427951326601784,
+            "p50": 0.05306879588983145,
+            "p97.5": 0.061012005454191644
+          }
+        }
+      },
+      {
+        "scenario": "S3",
+        "years": {
+          "2024": {
+            "n": 1000,
+            "p2.5": 0.049400958006287875,
+            "p50": 0.05506304617792211,
+            "p97.5": 0.06315172471106023
+          },
+          "2025": {
+            "n": 1000,
+            "p2.5": 0.048427951326601784,
+            "p50": 0.05306879588983145,
+            "p97.5": 0.061012005454191644
+          }
+        }
+      }
+    ],
+    "replicates": 1000,
+    "resampling_unit": "重采样单位为 record（整记录及其全部观测行一起抽取），每次复制重新计算全部合法情景",
+    "seed": 20261113,
+    "weighted_mean_hhi": {
+      "2024": {
+        "n": 1000,
+        "p2.5": 0.04942833373923477,
+        "p50": 0.05506208897888355,
+        "p97.5": 0.06315977480379473
+      },
+      "2025": {
+        "n": 1000,
+        "p2.5": 0.048427951326601784,
+        "p50": 0.05306879588983145,
+        "p97.5": 0.061012005454191644
+      }
+    }
+  },
+  "checks": {
+    "amount_conservation": {
+      "max_abs_deviation": 0.0,
+      "note": "每一合法情景中每笔金额恰好归给一家机构，逐年总额与原始明细一致",
+      "ok": true,
+      "year_totals": {
+        "2024": 5112.0,
+        "2025": 5976.0
+      }
+    },
+    "coverage": "ok",
+    "duplicate_attribution": "ok",
+    "feasible_combinations": 3,
+    "negative_weights": "ok",
+    "notes": [
+      "parent_hint 仅视为线索，未触发任何合并",
+      "跨组方案落到同一机构时，HHI 在合并后的完整世界上计算，未逐组相加"
+    ],
+    "parent_hint_used": false
+  },
+  "fixes": [],
+  "group_influence": {
+    "2024": [
+      {
+        "group": "group-b",
+        "hhi_spread": 1.806177002899173e-05,
+        "options": [
+          {
+            "conditional_mean_hhi": 0.0480035927615773,
+            "conditional_weight": 0.8181818181818181,
+            "option": "local"
+          },
+          {
+            "conditional_mean_hhi": 0.04798553099154831,
+            "conditional_weight": 0.18181818181818182,
+            "option": "shared"
+          }
+        ]
+      },
+      {
+        "group": "group-a",
+        "hhi_spread": 4.515442507249667e-06,
+        "options": [
+          {
+            "conditional_mean_hhi": 0.04800359276157729,
+            "conditional_weight": 0.2727272727272727,
+            "option": "joint"
+          },
+          {
+            "conditional_mean_hhi": 0.04799907731907004,
+            "conditional_weight": 0.7272727272727273,
+            "option": "separate"
+          }
+        ]
+      }
+    ],
+    "2025": [
+      {
+        "group": "group-b",
+        "hhi_spread": 6.938893903907228e-18,
+        "options": [
+          {
+            "conditional_mean_hhi": 0.046303688650183056,
+            "conditional_weight": 0.8181818181818181,
+            "option": "local"
+          },
+          {
+            "conditional_mean_hhi": 0.04630368865018306,
+            "conditional_weight": 0.18181818181818182,
+            "option": "shared"
+          }
+        ]
+      },
+      {
+        "group": "group-a",
+        "hhi_spread": 0.0,
+        "options": [
+          {
+            "conditional_mean_hhi": 0.04630368865018306,
+            "conditional_weight": 0.2727272727272727,
+            "option": "joint"
+          },
+          {
+            "conditional_mean_hhi": 0.04630368865018306,
+            "conditional_weight": 0.7272727272727273,
+            "option": "separate"
+          }
+        ]
+      }
+    ]
+  },
+  "input_fingerprint": "24f5b427c05ad1fb42e96a0554fb44135f68cfe2b1c2302db3524ab6d33bf16d",
+  "linkage_fingerprint": "8b7ac6d2ec336af5a29bacc3c79d36a13684df34da965ee7f9d29aaded3d281a",
+  "product": "entity-uncertainty",
+  "range": {
+    "2024": {
+      "hhi": {
+        "max": {
+          "scenarios": [
+            "S1",
+            "S2"
+          ],
+          "value": 0.04800359276157729
+        },
+        "min": {
+          "scenarios": [
+            "S3"
+          ],
+          "value": 0.047985530991548314
+        }
+      },
+      "top1_share": {
+        "max": 0.06866197183098592,
+        "min": 0.06866197183098592
+      }
+    },
+    "2025": {
+      "hhi": {
+        "max": {
+          "scenarios": [
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "value": 0.04630368865018306
+        },
+        "min": {
+          "scenarios": [
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "value": 0.04630368865018306
+        }
+      },
+      "top1_share": {
+        "max": 0.06475903614457831,
+        "min": 0.06475903614457831
+      }
+    }
+  },
+  "scenario_space": {
+    "coverage_complete": true,
+    "excluded_by_incompatibility": 1,
+    "feasible": 3,
+    "groups": [
+      {
+        "id": "group-a",
+        "options": [
+          {
+            "id": "joint",
+            "weight": 1.0
+          },
+          {
+            "id": "separate",
+            "weight": 2.0
+          }
+        ]
+      },
+      {
+        "id": "group-b",
+        "options": [
+          {
+            "id": "local",
+            "weight": 3.0
+          },
+          {
+            "id": "shared",
+            "weight": 1.0
+          }
+        ]
+      }
+    ],
+    "incompatible_pairs": [
+      [
+        [
+          "group-a",
+          "joint"
+        ],
+        [
+          "group-b",
+          "shared"
+        ]
+      ]
+    ],
+    "mode": "exact",
+    "product_space": 4,
+    "weight_normalization": "情景权重=各组所选方案 weight 之积，在可行情景集合上归一；weight 为上游相对可信权重，不是校准概率"
+  },
+  "scenarios": [
+    {
+      "choices": {
+        "group-a": "joint",
+        "group-b": "local"
+      },
+      "id": "S1",
+      "normalized_weight": 0.2727272727272727,
+      "weight": 3.0,
+      "years": {
+        "2024": {
+          "hhi": 0.04800359276157729,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 351.0,
+              "institution": "institution-23",
+              "share": 0.06866197183098592
+            },
+            {
+              "amount": 339.0,
+              "institution": "institution-22",
+              "share": 0.06631455399061033
+            },
+            {
+              "amount": 327.0,
+              "institution": "institution-21",
+              "share": 0.06396713615023474
+            }
+          ],
+          "total": 5112.0
+        },
+        "2025": {
+          "hhi": 0.04630368865018306,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 387.0,
+              "institution": "institution-23",
+              "share": 0.06475903614457831
+            },
+            {
+              "amount": 375.0,
+              "institution": "institution-22",
+              "share": 0.06275100401606426
+            },
+            {
+              "amount": 363.0,
+              "institution": "institution-21",
+              "share": 0.0607429718875502
+            }
+          ],
+          "total": 5976.0
+        }
+      }
+    },
+    {
+      "choices": {
+        "group-a": "separate",
+        "group-b": "local"
+      },
+      "id": "S2",
+      "normalized_weight": 0.5454545454545454,
+      "weight": 6.0,
+      "years": {
+        "2024": {
+          "hhi": 0.04800359276157729,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 351.0,
+              "institution": "institution-23",
+              "share": 0.06866197183098592
+            },
+            {
+              "amount": 339.0,
+              "institution": "institution-22",
+              "share": 0.06631455399061033
+            },
+            {
+              "amount": 327.0,
+              "institution": "institution-21",
+              "share": 0.06396713615023474
+            }
+          ],
+          "total": 5112.0
+        },
+        "2025": {
+          "hhi": 0.04630368865018306,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 387.0,
+              "institution": "institution-23",
+              "share": 0.06475903614457831
+            },
+            {
+              "amount": 375.0,
+              "institution": "institution-22",
+              "share": 0.06275100401606426
+            },
+            {
+              "amount": 363.0,
+              "institution": "institution-21",
+              "share": 0.0607429718875502
+            }
+          ],
+          "total": 5976.0
+        }
+      }
+    },
+    {
+      "choices": {
+        "group-a": "separate",
+        "group-b": "shared"
+      },
+      "id": "S3",
+      "normalized_weight": 0.18181818181818182,
+      "weight": 2.0,
+      "years": {
+        "2024": {
+          "hhi": 0.047985530991548314,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 351.0,
+              "institution": "institution-23",
+              "share": 0.06866197183098592
+            },
+            {
+              "amount": 339.0,
+              "institution": "institution-22",
+              "share": 0.06631455399061033
+            },
+            {
+              "amount": 327.0,
+              "institution": "institution-21",
+              "share": 0.06396713615023474
+            }
+          ],
+          "total": 5112.0
+        },
+        "2025": {
+          "hhi": 0.04630368865018306,
+          "institutions": 24,
+          "top3": [
+            {
+              "amount": 387.0,
+              "institution": "institution-23",
+              "share": 0.06475903614457831
+            },
+            {
+              "amount": 375.0,
+              "institution": "institution-22",
+              "share": 0.06275100401606426
+            },
+            {
+              "amount": 363.0,
+              "institution": "institution-21",
+              "share": 0.0607429718875502
+            }
+          ],
+          "total": 5976.0
+        }
+      }
+    }
+  ],
+  "schema_version": 1,
+  "unit": "万元",
+  "weighted_distribution": {
+    "2024": {
+      "mean": 0.0480003088033902,
+      "p10": 0.047985530991548314,
+      "p50": 0.04800359276157729,
+      "p90": 0.04800359276157729
+    },
+    "2025": {
+      "mean": 0.046303688650183056,
+      "p10": 0.04630368865018306,
+      "p50": 0.04630368865018306,
+      "p90": 0.04630368865018306
+    }
+  },
+  "weighted_distribution_note": "情景分布分位数仅描述候选归属不确定性，不是抽样置信区间",
+  "years": [
+    "2024",
+    "2025"
+  ]
+}
